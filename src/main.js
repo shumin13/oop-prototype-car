@@ -20,11 +20,31 @@
 // `Car` object should be able to run `paint` function,
 // and updates its existing object
 
+// var Car = require('./carFn')
+// === returning object
+
+// console.log(Car)
+// Car.sell('min')
+// Car.sell('Prima')
+// console.log(Car)
+// Car.paint('pink')
+// console.log(Car)
 
 // Phase II
 
 // // Repeat the same steps to Phase I, but this time require the the class file
 // // instead of the the `carFn` file
 
+var Car = require('./Car')
+// returning a function
+
+// var c1 = new Car('Honda', 'Vuzel', 2017, 'red', 7)
+// console.log(c1)
+// c1.sell('prima')
+// c1.sell('shimei')
+// c1.paint('blue')
+// console.log(c1);
+// var c2 = new Car()
+// console.log(c2);
 
 // Phase III
