@@ -10,7 +10,7 @@ class Car {
     this.previousOwners = []
     this.owner = "manufacturer"
     this.running = false
-    this.passengers = passengers || []
+    this.passengers = []
   }
 
   // add the sell function
