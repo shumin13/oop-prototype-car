@@ -120,7 +120,6 @@ console.log('Testing pickUp(name)')
 
 // test if it returns true if car is running and there are seats available
 honda.start()
-honda.passengers = []
 assert.strictEqual(honda.pickUp('Prima1'), true, 'pickUp(name) should return true if the car is running and there are seats available.')
 
 // test if passengers array is updated and passenger name is at the end of the array
@@ -141,7 +140,12 @@ assert.strictEqual(honda.pickUp('Prima7'), false, 'pickUp(name) should return fa
 
 // test if name is a non-string argument
 honda.start()
-honda.passengers = []
+honda.dropOff('Prima1')
+honda.dropOff('Prima2')
+honda.dropOff('Prima3')
+honda.dropOff('Prima4')
+honda.dropOff('Prima5')
+honda.dropOff('Prima6')
 assert.strictEqual(honda.pickUp('0123'), false, 'pickUp(name) should return false if the name is not a string.')
 
 success()
@@ -152,22 +156,22 @@ console.log('Testing dropOff(name)')
 
 // test if it returns true if car is running and passenger\'s name is in the array
 honda.start()
-honda.passengers = ['Prima1']
+honda.pickUp('Prima1')
 assert.strictEqual(honda.dropOff('Prima1'), true, 'dropOff(name) should return true if car is running and passenger\'s name is in the array.')
 
 // test if passenger\'s name is removed from the array if they are in the array
-honda.passengers = ['Prima1']
+honda.pickUp('Prima1')
 honda.dropOff('Prima1')
 assert.strictEqual(honda.passengers.includes('Prima1'), false, 'Passenger\'s name should be removed from the passengers array.')
 
 // test if it returns false if car is not running but passenger\'s name is in the array
 honda.off()
-honda.passengers = ['Prima1']
+honda.pickUp('Prima1')
 assert.strictEqual(honda.dropOff('Prima1'), false, 'dropOff(name) should return false if car is not running.')
 
 // test if it returns false if car is running but passenger\'s name is not in the array
 honda.start()
-honda.passengers = ['Prima1']
+honda.pickUp('Prima1')
 assert.strictEqual(honda.dropOff('Prima2'), false, 'dropOff(name) should return false if passenger\'s name is not in the array.')
 
 // test if name is a non-string argument
@@ -180,7 +184,7 @@ success()
 // test passengerCount()
 console.log('Testing passengerCount()')
 
-// test if the number of passengers currently in the car
+// test if the number of passengers currently in the car is correct
 honda.passengers = []
 honda.pickUp('Prima1')
 honda.pickUp('Prima2')
@@ -199,6 +203,10 @@ success()
 //
 // car.off() - error case: car.running !== true
 
-// car.park([]) - throw error
+// car.park([]) - throw error - isNaN works if argument is an empty array
 
 // if an argument consists of two or more strings
+
+// if no driver?
+
+// if passengerCount does not return a number
